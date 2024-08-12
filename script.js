@@ -1,45 +1,63 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const progress = document.getElementById('progress');
-    const steps = document.querySelectorAll('.form-step');
-    const progressSteps = document.querySelectorAll('.progress-step');
-    const totalSteps = steps.length;
-    let currentStep = 0;
+const prevBtns = document.querySelectorAll(".btn-prev");
+const nextBtns = document.querySelectorAll(".btn-next");
+const progress = document.querySelector(".progress");
+const formSteps = document.querySelectorAll(".form-step");
+const progressSteps = document.querySelectorAll(".progress-step");
 
-    function updateProgress() {
-        const progressWidth = (currentStep / (totalSteps - 1)) * 100;
-        progress.style.height = `${progressWidth}%`;
-        progress.style.width = `4px`; // Adjust to fixed width
-    }
+let formStepsNum = 0;
 
-    function showStep(index) {
-        steps.forEach((step, i) => {
-            step.classList.toggle('form-step-active', i === index);
-        });
-        progressSteps.forEach((step, i) => {
-            step.classList.toggle('progress-step-active', i === index);
-        });
-        currentStep = index;
-        updateProgress();
-    }
-
-    document.querySelectorAll('.btn-next').forEach(button => {
-        button.addEventListener('click', function (e) {
-            e.preventDefault();
-            if (currentStep < totalSteps - 1) {
-                showStep(currentStep + 1);
-            }
-        });
+/* Event Listener for Next Button. */
+nextBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+        formStepsNum++;
+        updateFormSteps();
+        updateProgressbar();
     });
-
-    document.querySelectorAll('.btn-prev').forEach(button => {
-        button.addEventListener('click', function (e) {
-            e.preventDefault();
-            if (currentStep > 0) {
-                showStep(currentStep - 1);
-            }
-        });
-    });
-
-    // Initialize
-    updateProgress();
 });
+
+/* Event Listener for Back Button. */
+prevBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+        formStepsNum--;
+        updateFormSteps();
+        updateProgressbar();
+    });
+});
+
+/* Updates Form Items */
+function updateFormSteps() {
+    formSteps.forEach((formStep) => {
+        formStep.classList.contains("form-step-active") &&
+        formStep.classList.remove("form-step-active");
+    });
+    formSteps[formStepsNum].classList.add("form-step-active");
+}
+
+/* Updates Progress Bar */
+function updateProgressbar() {
+    progressSteps.forEach((progressStep, index) => {
+        if (index <= formStepsNum) {
+            progressStep.classList.add("progress-step-active");
+        } else {
+            progressStep.classList.remove("progress-step-active");
+        }
+    });
+
+    // Adjust the height of the progress bar
+    const stepHeight = 100 / (progressSteps.length - 1);
+    progress.style.height = stepHeight * formStepsNum + "%";
+}
+
+/* email warning */
+document.getElementById('email').addEventListener('input', function () {
+    var email = this.value;
+    var emailError = document.getElementById('email-error');
+    var pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    
+    if (email.match(pattern)) {
+        emailError.style.display = 'none';
+    } else {
+        emailError.style.display = 'block';
+    }
+});
+

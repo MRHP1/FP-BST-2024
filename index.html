@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Multi-Step Form with Side Progress Bar</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
 </head>
 <body>
@@ -13,7 +14,7 @@
     <form action="#" class="form">
 
         <h2 class="form-title">
-            <img src="1723384610019.png" alt="Form Logo" class="title-image" width="30px">
+            <img src="schLogo.png" alt="Form Logo" class="title-image" width="60px">
             Registration Form
         </h2>
         
@@ -58,6 +59,7 @@
                     <div class="input-group">
                         <label for="email">Email Address</label>
                         <input type="email" name="email" id="email" placeholder="e.g., john.doe@example.com" />
+                        <span id="email-error" style="color:red; display:none;">Please enter a valid email address.</span>
                     </div>
                     <div class="input-group">
                         <label for="phone">Phone Number</label>

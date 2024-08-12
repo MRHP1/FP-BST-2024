@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Step Form with Side Progress Bar</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+</head>
+<body>
+    <!-- Form Begins -->
+    <form action="#" class="form">
+
+        <h2 class="form-title">
+            <img src="schLogo.png" alt="Form Logo" class="title-image" width="60px">
+            Registration Form
+        </h2>
+        
+        <div class="form-container">
+            <!-- Progress Bar  -->
+            <div class="progressbar-side">
+                <div class="progressbar">
+                    <div class="progress" id="progress"></div>
+                    <div class="progress-step progress-step-active" data-title="Personal"></div>
+                    <div class="progress-step" data-title="Contact"></div>
+                    <div class="progress-step" data-title="Social"></div>
+                    <div class="progress-step" data-title="Password"></div>
+                </div>
+            </div>
+
+            <div class="form-steps">
+                <!-- Form item - Basic -->
+                <div class="form-step form-step-active">
+                    <div class="input-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" name="firstName" id="firstName" placeholder="e.g., John" />
+                    </div>
+                    <div class="input-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" name="lastName" id="lastName" placeholder="e.g., Doe" />
+                    </div>
+                    <div class="input-group">
+                        <label for="dob">Date of Birth</label>
+                        <input type="date" name="dob" id="dob" />
+                    </div>
+                    <div class="btns-group">
+                        <a href="#" class="btn btn-next">Next</a>
+                    </div>
+                </div>
+
+                <!-- Form item - Contact -->
+                <div class="form-step">
+                    <div class="input-group">
+                        <label for="username">Username</label>
+                        <input type="text" name="username" id="username" placeholder="e.g., johndoe123" />
+                    </div>
+                    <div class="input-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" name="email" id="email" placeholder="e.g., john.doe@example.com" />
+                        <span id="email-error" style="color:red; display:none;">Please enter a valid email address.</span>
+                    </div>
+                    <div class="input-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" name="phone" id="phone" placeholder="e.g., +6284567890153" />
+                    </div>
+                    <div class="btns-group">
+                        <a href="#" class="btn btn-prev">Back</a>
+                        <a href="#" class="btn btn-next">Next</a>
+                    </div>
+                </div>
+
+                <!-- Form item - Social -->
+                <div class="form-step">
+                    <div class="input-group">
+                        <label for="instagram">Instagram Username</label>
+                        <input type="text" name="instagram" id="instagram" placeholder="e.g., @john_doe" />
+                    </div>
+                    <div class="input-group">
+                        <label for="twitter">Twitter Username</label>
+                        <input type="text" name="twitter" id="twitter" placeholder="e.g., @johndoe" />
+                    </div>
+                    <div class="input-group">
+                        <label for="github">Github Username</label>
+                        <input type="text" name="github" id="github" placeholder="e.g., johndoe" />
+                    </div>
+                    <div class="btns-group">
+                        <a href="#" class="btn btn-prev">Back</a>
+                        <a href="#" class="btn btn-next">Next</a>
+                    </div>
+                </div>
+
+                <!-- Form item - Password -->
+                <div class="form-step">
+                    <div class="input-group">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="password" placeholder="********" />
+                    </div>
+                    <div class="input-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" name="confirmPassword" id="confirmPassword" placeholder="********" />
+                    </div>
+                    <div class="btns-group">
+                        <a href="#" class="btn btn-prev">Back</a>
+                        <input type="submit" value="Register" class="btn" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>Schematics ITS &copy; 2024. All rights reserved.</p>
+        <li style="display: inline;">
+            <a href="https://instagram.com/schematics.its" target="_blank"><i class="fa fa-instagram fa-2x"></i></a>
+        </li>
+
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
